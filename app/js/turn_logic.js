@@ -7,23 +7,26 @@ let correctSpots = 0
 let correctColors = 0
 
 function guessStage() {
+  // Doesnt allow more then 4 guesses/turn
   if(guesses.length === 4) {
     alert('Only 4 guesses/turn')
     return
   }
-  console.log(masterCode)
   guesses.push(event.target.id)
-  console.log(guesses)
-  console.log(event.target.id)
   $(`#g-${guess}`).addClass(event.target.id)
   guess += 1
 }
 
 function submitGuess() {
+  console.log(`Master Code Submit Guess ${masterCode}`)
   for(let i = 0; i < guesses.length; i++) {
+    console.log(`Guess = ${guesses[i]}`)
+    console.log(`Master Code = ${masterCode[i]}`)
+    console.log('--------------')
     if (guesses[i] === masterCode[i]) {
       correctSpots += 1
     }
+    console.log(correctSpots)
   }
   $(`#c-place-${turn}`).html(correctSpots)
 
@@ -42,22 +45,50 @@ function submitGuess() {
       }
     }
   }
-  console.log(masterCode)
-  console.log(correctColors)
   $(`#c-color-${turn}`).html(correctColors)
   turn += 1
   guesses = []
-  correctSpots = 0;
-  correctColors = 0;
+  // correctSpots = 0;
+  // correctColors = 0;
+  masterClone = masterCode;
 }
 
 function resetTurn () {
   $(`#turn-${turn}`).children().removeClass('red blue green yellow orange purple')
   guesses = []
-  if(turn === 0) {
-    guess = 0
-  } else if (turn === 1) {
-    guess = 4
+  switch (turn) {
+    case 0:
+      guess = 0;
+      break;
+    case 1:
+      guess = 4;
+      break;
+    case 2:
+      guess = 8;
+      break;
+    case 3:
+      guess = 12;
+      break;
+    case 4:
+      guess = 16;
+      break;
+    case 5:
+      guess = 20;
+      break;
+    case 6:
+      guess = 24;
+      break;
+    case 7:
+      guess = 28;
+      break;
+    case 8:
+      guess = 32;
+      break;
+    case 9:
+      guess = 36;
+      break;
+    default:
+      break;
   }
   // $(`#turn-${turn}`).
 }
