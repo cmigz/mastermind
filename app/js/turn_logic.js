@@ -14,7 +14,7 @@ function guessStage() {
   guesses.push(event.target.id)
   console.log(guesses)
   console.log(event.target.id)
-  $(`#t-${guess}`).addClass(event.target.id)
+  $(`#g-${guess}`).addClass(event.target.id)
   guess += 1
 }
 
@@ -46,4 +46,11 @@ function submitGuess() {
   $(`#c-color-${turn}`).html(correctColors)
 }
 
-export { guessStage, submitGuess };
+function resetTurn () {
+  $(`#turn-${turn}`).children().removeClass('red blue green yellow orange purple')
+  guesses = []
+  guess = 0
+  // $(`#turn-${turn}`).
+}
+
+export { guessStage, submitGuess, resetTurn };

@@ -7,4 +7,5 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#start').click(() => startGame());
   $('.option').click(() => guessStage());
   $('#submit').click(() => submitGuess());
+  $('#reset').click(() => resetTurn())
 });
