@@ -1,6 +1,5 @@
-import someFunction from './masterCode';
+import { masterCode, colors, masterGenerator} from './masterCode';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('initialized');
-  someFunction();
 });
