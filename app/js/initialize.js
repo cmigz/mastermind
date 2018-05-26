@@ -1,5 +1,5 @@
 import { masterCode, colors, masterGenerator, startGame} from './masterCode';
-import { guessStage, submitGuess } from './turn_logic';
+import { guessStage, submitGuess, resetTurn } from './turn_logic';
 
 document.addEventListener('DOMContentLoaded', () => {
 
