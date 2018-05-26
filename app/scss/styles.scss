@@ -2,6 +2,73 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.page-header {
-  margin-top: 3rem;
+.master-code {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.master {
+  background-color: #000;
+  height: 100px;
+  margin: 5px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.turn {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.turn > .tile {
+  width: 100px;
+  height: 100px;
+  margin: 20px 5px 5px 5px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.turn > .response {
+  width: 100px;
+  height: 100px;
+  margin: 20px 5px 5px 5px;
+  border: 2px solid black;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.option {
+  width: 100px;
+  height: 100px;
+  margin: 20px 5px 5px 5px;
+}
+
+#red {
+  background-color: red;
+}
+
+#blue {
+  background-color: blue;
+}
+
+#green {
+  background-color: green;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#orange {
+  background-color: orange;
+}
+
+#purple {
+  background-color: purple;
 }
