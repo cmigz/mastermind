@@ -9,6 +9,7 @@ let correctColors = 0
 function guessStage() {
   if(guesses.length === 4) {
     alert('Only 4 guesses/turn')
+    return
   }
   console.log(masterCode)
   guesses.push(event.target.id)
@@ -44,12 +45,20 @@ function submitGuess() {
   console.log(masterCode)
   console.log(correctColors)
   $(`#c-color-${turn}`).html(correctColors)
+  turn += 1
+  guesses = []
+  correctSpots = 0;
+  correctColors = 0;
 }
 
 function resetTurn () {
   $(`#turn-${turn}`).children().removeClass('red blue green yellow orange purple')
   guesses = []
-  guess = 0
+  if(turn === 0) {
+    guess = 0
+  } else if (turn === 1) {
+    guess = 4
+  }
   // $(`#turn-${turn}`).
 }
 
