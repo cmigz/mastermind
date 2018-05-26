@@ -2,6 +2,22 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+button {
+  background-color: white;
+  border: 2px solid green;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
 .master-code {
   display: flex;
   flex-direction: row;

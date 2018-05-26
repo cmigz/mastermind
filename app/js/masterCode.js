@@ -10,4 +10,10 @@ function masterGenerator() {
   }
 }
 
-export { masterCode, colors, masterGenerator };
+function startGame() {
+  masterGenerator();
+  console.log(masterCode);
+  $('#start').hide()
+}
+
+export { masterCode, colors, masterGenerator, startGame };
