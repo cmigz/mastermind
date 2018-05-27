@@ -1,16 +1,16 @@
 import { masterCode } from './masterCode';
 
-let turn = 0
-let guess = 0
-let guesses = []
-let correctSpots = 0
-let correctColors = 0
+let turn = 0;
+let guess = 0;
+let guesses = [];
+let correctSpots = 0;
+let correctColors = 0;
 
 function guessStage() {
   // Doesnt allow more then 4 guesses/turn
-  if(guesses.length === 4) {
-    alert('Only 4 guesses/turn')
-    return
+  if (guesses.length === 4) {
+    alert('Only 4 guesses/turn');
+    return;
   }
   guesses.push(event.target.id)
   $(`#g-${guess}`).addClass(event.target.id)
@@ -18,15 +18,10 @@ function guessStage() {
 }
 
 function submitGuess() {
-  console.log(`Master Code Submit Guess ${masterCode}`)
   for(let i = 0; i < guesses.length; i++) {
-    console.log(`Guess = ${guesses[i]}`)
-    console.log(`Master Code = ${masterCode[i]}`)
-    console.log('--------------')
     if (guesses[i] === masterCode[i]) {
       correctSpots += 1
     }
-    console.log(correctSpots)
   }
   $(`#c-place-${turn}`).html(correctSpots)
 
@@ -35,27 +30,37 @@ function submitGuess() {
     array.splice(index, 1);
   }
 
-  let masterClone = masterCode
+  let masterClone = masterCode.slice()
 
-  for (let i = 0; i < guesses.length; i++) {
-    for(let x = 0; x < masterClone.length; x++) {
-      if(guesses[i] === masterClone[x]) {
-        correctColors += 1
-        remove(masterClone, masterClone[x])
-      }
+  for(let i = 0; i < guesses.length; i++) {
+    if (guesses[i] === masterClone[0]) {
+      correctColors += 1
+      remove(masterClone, masterClone[0])
+    } else if (guesses[i] === masterClone[1]) {
+      correctColors += 1
+      remove(masterClone, masterClone[1])
+    } else if (guesses[i] === masterClone[2]) {
+      correctColors += 1
+      remove(masterClone, masterClone[2])
+    } else if (guesses[i] === masterClone[3]){
+      correctColors += 1
+      remove(masterClone, masterClone[3])
     }
   }
-  $(`#c-color-${turn}`).html(correctColors)
-  turn += 1
-  guesses = []
-  // correctSpots = 0;
-  // correctColors = 0;
-  masterClone = masterCode;
+
+  $(`#c-color-${turn}`).html(correctColors);
+  turn += 1;
+  guesses = [];
+  correctSpots = 0;
+  correctColors = 0;
+  masterClone = masterCode.slice();
 }
 
-function resetTurn () {
-  $(`#turn-${turn}`).children().removeClass('red blue green yellow orange purple')
-  guesses = []
+function resetTurn() {
+  $(`#turn-${turn}`)
+    .children()
+    .removeClass('red blue green yellow orange purple');
+  guesses = [];
   switch (turn) {
     case 0:
       guess = 0;
@@ -90,7 +95,6 @@ function resetTurn () {
     default:
       break;
   }
-  // $(`#turn-${turn}`).
 }
 
 export { guessStage, submitGuess, resetTurn };
