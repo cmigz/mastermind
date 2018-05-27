@@ -48,7 +48,16 @@ function submitGuess() {
     }
   }
 
-  $(`#c-color-${turn}`).html(correctColors);
+  // Win Logic
+  function winLogic() {
+    $(`#c-color-${turn}`).html(correctColors);
+    if(correctSpots === 4 && correctColors === 4) {
+      console.log('winner')
+    }
+    $('.win-banner').toggleClass('win-banner-active')
+  }
+
+  winLogic()
   turn += 1;
   guesses = [];
   correctSpots = 0;
